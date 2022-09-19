@@ -31,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Fire(InputAction.CallbackContext context)
+    {
+        
+    }
+
 
     private bool IsGrounded()
     {
