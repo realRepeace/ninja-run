@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3140342503344889354}
   - component: {fileID: 6642995611440497107}
   - component: {fileID: 1017812747526565386}
+  - component: {fileID: -4664933333030888357}
   m_Layer: 0
   m_Name: Wurfstern
   m_TagString: Untagged
@@ -124,4 +125,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3f888cbf6ae884b9127419ba5bdb7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: 25
+  rotationSpeed: 300
+--- !u!95 &-4664933333030888357
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199998498630483544}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1fffbbef3d58ee4bb20cd5d62980104, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

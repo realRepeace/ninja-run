@@ -5,9 +5,12 @@ using UnityEngine;
 public class MoveForward : MonoBehaviour
 {
     public float speed = 40f;
+    public float rotationSpeed = 150f;
 
     void Update()
     {
-        transform.Translate(Vector3.right * Time.deltaTime * speed);
+        transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
+        
+        transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime, Space.Self); 
     }
 }

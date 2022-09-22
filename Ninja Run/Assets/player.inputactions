@@ -240,6 +240,17 @@
                     "action": "Wurf",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3f9e9f7-5531-43be-96cf-5bbe331d309a",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Wurf",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
