@@ -9,12 +9,29 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
 
+    public GameObject projectilePrefab;
+
     private float jumpingPower = 16f;
+    private Vector3 Wurfabstand = new Vector3(1.5f, 0, 0);
+    private Animator anim;
+    private bool isGrounded;
+
+
+    private void Start() {
+        anim = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+
+        if (IsGrounded())
+        {
+            anim.SetBool("isJumping", true);
+        } else {
+            anim.SetBool("isJumping", false);
+        }
     }
 
 
@@ -22,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed && IsGrounded())
         {
+            anim.SetTrigger("takeOf");
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 
@@ -31,15 +49,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void Fire(InputAction.CallbackContext context)
+    public void Wurf(InputAction.CallbackContext context)
     {
-        
+        if (context.performed)
+        {
+            Instantiate(projectilePrefab, transform.position + Wurfabstand, projectilePrefab.transform.rotation);
+        }
     }
 
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return isGrounded;
     }
     
 }
