@@ -10,11 +10,14 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     public ParticleSystem dustParticle;
     public AudioClip jumpSound;
+    public AudioClip throwSound;
 
     public GameObject projectilePrefab;
 
-    private float jumpingPower = 16f;
+    private float jumpingPower = 20f;
+    private float movementSpeed = 30f;
     private Vector3 Wurfabstand = new Vector3(1.5f, 0, 0);
+    private float startPos;
     private Animator anim;
     private AudioSource playerAudio;
 
@@ -22,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start() {
         anim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
+        startPos = transform.position.x;
     }
 
     void FixedUpdate()
@@ -35,13 +39,26 @@ public class PlayerMovement : MonoBehaviour
             dustParticle.Stop();
             anim.SetBool("isJumping", true);
         }
+
+        if (transform.position.x < startPos)
+        {
+            if (transform.position.x < startPos - 2.7f)
+            {
+                Time.timeScale = 0;
+            }
+            rb.AddForce(Vector2.right * movementSpeed);
+        } else if (rb.position.x > startPos)
+        {
+            //transform.position = new Vector2(startPos, transform.position.y);
+            rb.velocity = new Vector2(0.1f, rb.velocity.y);
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
         if (context.performed && IsGrounded())
         {
-            playerAudio.PlayOneShot(jumpSound);
+            JumpSound();
             anim.SetTrigger("takeOf");
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         } 
@@ -56,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
+            playerAudio.PlayOneShot(throwSound);
             Instantiate(projectilePrefab, transform.position + Wurfabstand, projectilePrefab.transform.rotation);
         }
     }
@@ -71,5 +89,9 @@ public class PlayerMovement : MonoBehaviour
         {
              if(!dustParticle.isPlaying) dustParticle.Play();
         }
+    }
+
+    void JumpSound() {
+        playerAudio.PlayOneShot(jumpSound);
     }
 }
