@@ -12,5 +12,13 @@ public class MoveForward : MonoBehaviour
         transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
         
         transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime, Space.Self); 
+        Destroy();
+    }
+
+    private void Destroy() {
+        if (transform.position.x >= 22)
+        {
+            Destroy(gameObject);
+        }
     }
 }
