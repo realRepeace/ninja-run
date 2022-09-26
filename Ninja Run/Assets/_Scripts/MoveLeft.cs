@@ -5,8 +5,8 @@ using UnityEngine;
 public class MoveLeft : MonoBehaviour
 {
     public float speed = 10f;
-    
-    void Update()
+
+    void LateUpdate()
     {
         transform.Translate(Vector3.left * Time.deltaTime * speed);
     }

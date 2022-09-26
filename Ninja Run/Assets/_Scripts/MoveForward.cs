@@ -15,7 +15,8 @@ public class MoveForward : MonoBehaviour
         Destroy();
     }
 
-    private void Destroy() {
+    private void Destroy() 
+    {
         if (transform.position.x >= 22)
         {
             Destroy(gameObject);
