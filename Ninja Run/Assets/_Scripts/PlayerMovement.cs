@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem dustParticle;
     public AudioClip jumpSound;
     public AudioClip throwSound;
+    public AudioClip pickupCoin;
 
     public GameObject projectilePrefab;
 
@@ -98,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Coin"))
         {
+            playerAudio.PlayOneShot(pickupCoin);
             Destroy(other.gameObject);
         }
     }
