@@ -6,6 +6,7 @@ public class MoveForward : MonoBehaviour
 {
     public float speed = 40f;
     public float rotationSpeed = 150f;
+    private float rangeLimit = 9f;
 
     void Update()
     {
@@ -17,8 +18,21 @@ public class MoveForward : MonoBehaviour
 
     private void Destroy() 
     {
-        if (transform.position.x >= 22)
+        if (transform.position.x >= rangeLimit)
         {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(other.gameObject);
             Destroy(gameObject);
         }
     }

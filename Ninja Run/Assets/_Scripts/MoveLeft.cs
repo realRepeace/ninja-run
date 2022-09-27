@@ -6,8 +6,8 @@ public class MoveLeft : MonoBehaviour
 {
     public float speed = 10f;
 
-    void LateUpdate()
+    void Update()
     {
-        transform.Translate(Vector3.left * Time.deltaTime * speed);
+        transform.Translate(Vector2.left * Time.deltaTime * speed);
     }
 }
