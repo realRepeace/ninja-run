@@ -6,7 +6,7 @@ public class MoveForward : MonoBehaviour
 {
     public float speed = 40f;
     public float rotationSpeed = 150f;
-    private float rangeLimit = 9f;
+    private float rangeLimit = 11f;
 
     void Update()
     {

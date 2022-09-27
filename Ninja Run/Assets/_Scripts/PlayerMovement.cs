@@ -6,14 +6,16 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public GameObject projectilePrefab;
     public Transform groundCheck;
     public LayerMask groundLayer;
     public ParticleSystem dustParticle;
     public AudioClip jumpSound;
     public AudioClip throwSound;
     public AudioClip pickupCoin;
+    public float life = 3;
 
-    public GameObject projectilePrefab;
+    
 
     private float jumpingPower = 20f;
     private float movementSpeed = 30f;
@@ -89,6 +91,17 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
              if(!dustParticle.isPlaying) dustParticle.Play();
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            life -= 1;
+            Debug.Log(life);
+            if (life == 0)
+            {
+                Time.timeScale = 0;
+            }
+            
         }
     }
 
