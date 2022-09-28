@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip pickupCoin;
     public float life = 3;
 
-    
 
     private float jumpingPower = 20f;
     private float movementSpeed = 30f;
@@ -95,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
+            anim.SetTrigger("damageTaken");
             life -= 1;
             Debug.Log(life);
             if (life == 0)
