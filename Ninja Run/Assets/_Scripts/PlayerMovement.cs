@@ -94,14 +94,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            anim.SetTrigger("damageTaken");
             life -= 1;
-            Debug.Log(life);
             if (life == 0)
             {
                 Time.timeScale = 0;
             }
-            
+            anim.SetTrigger("damageTaken");
         }
     }
 
