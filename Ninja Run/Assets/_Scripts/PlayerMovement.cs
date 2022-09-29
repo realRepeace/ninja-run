@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,12 +23,14 @@ public class PlayerMovement : MonoBehaviour
     private float startPos;
     private Animator anim;
     private AudioSource playerAudio;
+    private PlayerInput input;
 
 
     private void Start() {
         anim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
         startPos = transform.position.x;
+        input = GetComponent<PlayerInput>();
     }
 
     void FixedUpdate()
@@ -44,8 +47,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (transform.position.x < startPos)
         {
-            if (transform.position.x < startPos - 2.7f)
+            if (transform.position.x < startPos - 3.5f)
             {
+                input.actions.Disable();
                 Time.timeScale = 0;
             }
             rb.AddForce(Vector2.right * movementSpeed);
@@ -95,11 +99,15 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             life -= 1;
-            if (life == 0)
+            if (life >= 1)
             {
+                anim.SetTrigger("damageTaken");
+                FindObjectOfType<Hitstop>().Stop(0.1f);
+            } else if (life == 0) {
+                anim.SetTrigger("isDead");
+                input.actions.Disable();
                 Time.timeScale = 0;
             }
-            anim.SetTrigger("damageTaken");
         }
     }
 

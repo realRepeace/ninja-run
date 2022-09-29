@@ -6,17 +6,20 @@ public class MoveForward : MonoBehaviour
 {
     public float speed = 40f;
     public float rotationSpeed = 150f;
+
     private float rangeLimit = 11f;
+    private float damage = 1f;
+
 
     void Update()
     {
         transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
         
         transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime, Space.Self); 
-        Destroy();
+        OutOfSight();
     }
 
-    private void Destroy() 
+    private void OutOfSight() 
     {
         if (transform.position.x >= rangeLimit)
         {
@@ -25,14 +28,10 @@ public class MoveForward : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            Destroy(gameObject);
-        }
 
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
-            Destroy(other.gameObject);
+            enemyComponent.TakeDamage(damage);
             Destroy(gameObject);
         }
     }
