@@ -11,10 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public ParticleSystem dustParticle;
-    public AudioClip jumpSound;
-    public AudioClip throwSound;
-    public AudioClip pickupCoin;
     public float life = 3;
+    
 
 
     private float jumpingPower = 20f;
@@ -79,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            playerAudio.PlayOneShot(throwSound);
+            FindObjectOfType<AudioManager>().Play("throwsound");
             Instantiate(projectilePrefab, transform.position + Wurfabstand, projectilePrefab.transform.rotation);
         }
     }
@@ -112,13 +110,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void JumpSound() {
-        playerAudio.PlayOneShot(jumpSound);
+        FindObjectOfType<AudioManager>().Play("jumpsound");
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Coin"))
         {
-            playerAudio.PlayOneShot(pickupCoin);
+            FindObjectOfType<AudioManager>().Play("pickupCoin");
             Destroy(other.gameObject);
         }
     }

@@ -32,7 +32,7 @@ public class MoveForward : MonoBehaviour
         if (other.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
             enemyComponent.TakeDamage(damage);
-            Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 }
