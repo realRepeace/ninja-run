@@ -11,12 +11,14 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public ParticleSystem dustParticle;
-    public float life = 3;
+    public float life = 3f;
+    public float fireRate = 6f;
     
 
 
     private float jumpingPower = 20f;
     private float movementSpeed = 30f;
+    private float nextTimeToFire = 0f;
     private Vector3 Wurfabstand = new Vector3(1.5f, 0, 0);
     private float startPos;
     private Animator anim;
@@ -75,8 +77,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void Wurf(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && Time.time >= nextTimeToFire)
         {
+            nextTimeToFire = Time.time + 1f / fireRate;
             FindObjectOfType<AudioManager>().Play("throwsound");
             Instantiate(projectilePrefab, transform.position + Wurfabstand, projectilePrefab.transform.rotation);
         }
