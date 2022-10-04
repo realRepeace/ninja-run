@@ -3457,9 +3457,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Drucke SPACE zum springen!
+  m_text: 'Drucke SPACE zum Springen!
 
-    Drucke LINKE MAUSTASTE zum werfen von
+    Drucke LINKE MAUSTASTE zum Werfen von
     Wurfsternen!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 631108084c8b7ad47937f9840870939a, type: 2}

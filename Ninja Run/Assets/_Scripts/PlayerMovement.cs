@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     public GameObject projectilePrefab;
+    public GameObject schwertPrefab;
     public Transform groundCheck;
     public LayerMask groundLayer;
     public ParticleSystem dustParticle;
@@ -83,6 +84,23 @@ public class PlayerMovement : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("throwsound");
             Instantiate(projectilePrefab, transform.position + Wurfabstand, projectilePrefab.transform.rotation);
         }
+    }
+
+    public void Schwert(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            schwertPrefab.SetActive(true);
+
+            StartCoroutine(SchwertDelay());
+        }
+    }
+
+    IEnumerator SchwertDelay()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+
+        schwertPrefab.SetActive(false);
     }
 
 
