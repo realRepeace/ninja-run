@@ -11,13 +11,8 @@ public class Enemy : MonoBehaviour
     public GameObject hitSplashSmall;
     public HitFlash hitFlash;
 
-    public AudioClip damageSound;
-
-    private AudioSource enemyAudio;
-
     private void Start() {
         health = maxHealth;
-        enemyAudio = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(float damageAmount)
@@ -26,7 +21,6 @@ public class Enemy : MonoBehaviour
         Instantiate(hitSplashSmall, transform.position, Quaternion.identity);
         hitFlash.Flash();
         FindObjectOfType<AudioManager>().Play("enemydamage");
-        rb.AddForce(Vector2.right * 4f, ForceMode2D.Impulse);
 
         if (health <= 0)
         {

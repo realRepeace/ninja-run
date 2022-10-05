@@ -8,18 +8,22 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     public GameObject projectilePrefab;
-    public GameObject schwertPrefab;
+    public GameObject schwertUntenPrefab;
+    public GameObject schwertSeitePrefab;
     public Transform groundCheck;
     public LayerMask groundLayer;
     public ParticleSystem dustParticle;
     public float life = 3f;
-    public float fireRate = 6f;
     
-
-
+    
+    
+    private bool inputOnGround = true;
     private float jumpingPower = 20f;
     private float movementSpeed = 30f;
     private float nextTimeToFire = 0f;
+    private float fireRate = 7f;
+    private float nextTimeToAttack = 0f;
+    private float attackRate = 7f;
     private Vector3 Wurfabstand = new Vector3(1.5f, 0, 0);
     private float startPos;
     private Animator anim;
@@ -59,6 +63,12 @@ public class PlayerMovement : MonoBehaviour
             //transform.position = new Vector2(startPos, transform.position.y);
             rb.velocity = new Vector2(0.1f, rb.velocity.y);
         }
+
+        if (transform.position.y < -6.36f)
+        {
+            input.actions.Disable();
+            Time.timeScale = 0;
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -88,9 +98,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void Schwert(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && Time.time >= nextTimeToAttack)
         {
-            schwertPrefab.SetActive(true);
+            nextTimeToAttack = Time.time + 1f / attackRate;
+            if (IsGrounded() == false)
+            {
+                schwertUntenPrefab.SetActive(true);
+                inputOnGround = false;
+            } else {
+                schwertSeitePrefab.SetActive(true);
+                inputOnGround = true;
+            }
 
             StartCoroutine(SchwertDelay());
         }
@@ -100,11 +118,17 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.1f);
 
-        schwertPrefab.SetActive(false);
+        if (inputOnGround == true)
+        {
+            schwertSeitePrefab.SetActive(false);
+        } else {
+            schwertUntenPrefab.SetActive(false);
+        }
+        
     }
 
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
@@ -140,5 +164,11 @@ public class PlayerMovement : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("pickupCoin");
             Destroy(other.gameObject);
         }
+    }
+
+    public void ResetVelocity(Rigidbody2D rb)
+    {
+        rb.velocity = Vector2.zero;
+
     }
 }

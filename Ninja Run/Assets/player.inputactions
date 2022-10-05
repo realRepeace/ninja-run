@@ -242,7 +242,7 @@
                 {
                     "name": "",
                     "id": "3b9edfc1-0ef7-47c5-b78a-c45de80870db",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -264,10 +264,21 @@
                 {
                     "name": "",
                     "id": "70e42e55-74ad-46ec-866b-4b8ac0ff1474",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "Schwert",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f41ff01a-5590-4788-bd8a-f1575564d1e0",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Schwert",
                     "isComposite": false,
                     "isPartOfComposite": false

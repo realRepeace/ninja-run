@@ -10,12 +10,6 @@ public class Slime : MonoBehaviour
     public LayerMask groundLayer;
     private float jumpHeight = 6f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

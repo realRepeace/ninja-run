@@ -6,7 +6,7 @@ public class MoveLeft : MonoBehaviour
 {
     public float speed = 10f;
 
-    void Update()
+    void LateUpdate()
     {
         transform.Translate(Vector2.left * Time.deltaTime * speed);
     }

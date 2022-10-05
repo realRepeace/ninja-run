@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 3
+  maxHealth: 2
   rb: {fileID: 6032318474533598551}
   hitSplash: {fileID: 6107275109628080678, guid: ef2335ce89659eb4c871fb403587f997, type: 3}
   hitSplashSmall: {fileID: 6107275109628080678, guid: ca064195f70cba441a42febfe9616052, type: 3}

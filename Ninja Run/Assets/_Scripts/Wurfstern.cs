@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveForward : MonoBehaviour
+public class Wurfstern : MonoBehaviour
 {
     public float speed = 40f;
     public float rotationSpeed = 150f;
 
     private float rangeLimit = 11f;
-    private float damage = 1f;
+    private float damage = 0.5f;
+    private float horizontalKnockback = 3f;
 
 
     void Update()
@@ -27,12 +28,12 @@ public class MoveForward : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other) {
-
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
             enemyComponent.TakeDamage(damage);
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * horizontalKnockback, ForceMode2D.Impulse);
         }
         Destroy(gameObject);
-    }
+    } 
 }
