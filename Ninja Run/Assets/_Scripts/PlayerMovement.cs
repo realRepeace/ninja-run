@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public ParticleSystem dustParticle;
-    public float life = 3f;
+    public float maxHealth = 3f;
+    public float currentHealth = 0f;
     
     
     
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();
         startPos = transform.position.x;
         input = GetComponent<PlayerInput>();
+        currentHealth = maxHealth;
     }
 
     void FixedUpdate()
@@ -141,12 +143,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            life -= 1;
-            if (life >= 1)
+            currentHealth -= 1;
+            if (currentHealth >= 1)
             {
                 anim.SetTrigger("damageTaken");
                 FindObjectOfType<Hitstop>().Stop(0.1f);
-            } else if (life == 0) {
+            } else if (currentHealth == 0) {
                 anim.SetTrigger("isDead");
                 input.actions.Disable();
                 Time.timeScale = 0;
