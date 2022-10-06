@@ -8,19 +8,30 @@ public class Slime : MonoBehaviour
     public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    private float jumpHeight = 6f;
+    private int jumpHeight = 0;
+    
 
-    // Update is called once per frame
-    void Update()
+    
+    private void Start() {
+        Random();
+    }
+
+    void FixedUpdate()
     {
         if (IsGrounded() == true)
         {
             rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+            Random();
         }
     }
 
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
+
+    void Random()
+    {
+        jumpHeight = UnityEngine.Random.Range(10, 30);
     }
 }

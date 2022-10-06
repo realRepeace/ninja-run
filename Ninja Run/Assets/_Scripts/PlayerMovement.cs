@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public ParticleSystem dustParticle;
+    public GameOverScript gameOverScript;
     public float maxHealth = 3f;
     public float currentHealth = 0f;
     
@@ -56,8 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (transform.position.x < startPos - 3.5f)
             {
-                input.actions.Disable();
-                Time.timeScale = 0;
+                GameOver();
             }
             rb.AddForce(Vector2.right * movementSpeed);
         } else if (rb.position.x > startPos)
@@ -68,8 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (transform.position.y < -6.36f)
         {
-            input.actions.Disable();
-            Time.timeScale = 0;
+            GameOver();
         }
     }
 
@@ -149,9 +148,7 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetTrigger("damageTaken");
                 FindObjectOfType<Hitstop>().Stop(0.1f);
             } else if (currentHealth == 0) {
-                anim.SetTrigger("isDead");
-                input.actions.Disable();
-                Time.timeScale = 0;
+                GameOver();
             }
         }
     }
@@ -163,6 +160,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Coin"))
         {
+            CoinManager.coinAmount += 1;
             FindObjectOfType<AudioManager>().Play("pickupCoin");
             Destroy(other.gameObject);
         }
@@ -172,5 +170,14 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
 
+    }
+
+    public void GameOver() 
+    {
+        gameOverScript.Setup(CoinManager.coinAmount);
+
+        anim.SetTrigger("isDead");
+        input.actions.Disable();
+        Time.timeScale = 0;
     }
 }
