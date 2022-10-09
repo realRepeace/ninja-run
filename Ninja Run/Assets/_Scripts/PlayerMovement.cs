@@ -3,23 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header ("Prefabs")]
     public Rigidbody2D rb;
     public GameObject projectilePrefab;
     public GameObject schwertUntenPrefab;
     public GameObject schwertSeitePrefab;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    public ParticleSystem dustParticle;
     public GameOverScript gameOverScript;
+
+    [Header ("Particle")]
+    public ParticleSystem dustParticle;
+
+    [Header ("iFrames")]
+    public float iFramesDuration;
+    
+    [Header ("Health")]
     public float maxHealth = 3f;
     public float currentHealth = 0f;
     
     
     
     private bool inputOnGround = true;
+    private bool iFramesActive = false;
     private float jumpingPower = 20f;
     private float movementSpeed = 30f;
     private float nextTimeToFire = 0f;
@@ -36,14 +46,13 @@ public class PlayerMovement : MonoBehaviour
     private void Start() {
         anim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
-        startPos = transform.position.x;
         input = GetComponent<PlayerInput>();
         currentHealth = maxHealth;
+        startPos = rb.position.x;
     }
 
-    void FixedUpdate()
+    void FixedUpdate() //Abfragen ob Spieler tod ist und Animationen
     {
-        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
 
         if (IsGrounded() == true)
         {
@@ -53,17 +62,20 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isJumping", true);
         }
 
-        if (transform.position.x < startPos)
+        if (rb.position.x < startPos)
         {
             if (transform.position.x < startPos - 3.5f)
             {
                 GameOver();
             }
             rb.AddForce(Vector2.right * movementSpeed);
-        } else if (rb.position.x > startPos)
+            
+        } 
+        
+        if (rb.position.x > startPos)
         {
-            //transform.position = new Vector2(startPos, transform.position.y);
-            rb.velocity = new Vector2(0.1f, rb.velocity.y);
+            rb.position = new Vector2(startPos, rb.position.y);
+           //rb.velocity = new Vector2(0.1f, rb.velocity.y);
         }
 
         if (transform.position.y < -6.36f)
@@ -115,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    IEnumerator SchwertDelay()
+    IEnumerator SchwertDelay() //Damit Schwert nicht gespamt werden kann 
     {
         yield return new WaitForSecondsRealtime(0.1f);
 
@@ -134,7 +146,8 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
     
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnCollisionEnter2D(Collision2D other) { //Zusammenstoß mit anderen Objekten wird geregelt
+        
         if (other.gameObject.CompareTag("Ground"))
         {
              if(!dustParticle.isPlaying) dustParticle.Play();
@@ -142,22 +155,22 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
+            if (iFramesActive == false)
+            {
             currentHealth -= 1;
-            if (currentHealth >= 1)
+            if (currentHealth > 0)
             {
                 anim.SetTrigger("damageTaken");
-                FindObjectOfType<Hitstop>().Stop(0.1f);
+                FindObjectOfType<Hitstop>().Stop(0.2f);
+                StartCoroutine(Invulnerability());
             } else if (currentHealth == 0) {
                 GameOver();
+            }
             }
         }
     }
 
-    void JumpSound() {
-        FindObjectOfType<AudioManager>().Play("jumpsound");
-    }
-
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) { //Zusammenstoß mit anderen Triggerobjekten wird geregelt 
         if (other.gameObject.CompareTag("Coin"))
         {
             CoinManager.coinAmount += 1;
@@ -166,10 +179,24 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void ResetVelocity(Rigidbody2D rb)
+    public void ResetVelocity(Rigidbody2D rb) 
     {
         rb.velocity = Vector2.zero;
 
+    }
+
+    public void JumpSound()
+    {
+        FindObjectOfType<AudioManager>().Play("jumpsound");
+    }
+
+    private IEnumerator Invulnerability()
+    {
+        iFramesActive = true;
+
+        yield return new WaitForSeconds(iFramesDuration);
+
+        iFramesActive = false;
     }
 
     public void GameOver() 

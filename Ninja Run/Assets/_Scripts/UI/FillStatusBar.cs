@@ -9,14 +9,14 @@ public class FillStatusBar : MonoBehaviour
     public Image fillImage;
     private Slider slider;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         slider = GetComponent<Slider>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void Update()   //Lebensleiste wird verändert je nach Schaden
     {
         if (slider.value <= slider.minValue)
         {

@@ -13,7 +13,7 @@ using UnityEngine;
         private Coroutine flashRoutine;
         private SpriteRenderer[] spriteRenderers; 
 
-        void Start()
+        void Start() //Für jedes Kindelement wird der originale Sprite gespeichert 
         {
             spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
             foreach (SpriteRenderer thisSpriteRenderer in spriteRenderers)
@@ -22,7 +22,7 @@ using UnityEngine;
             }
         }
 
-        public void Flash()
+        public void Flash() //Überprüfung ob Schadeneffekt nicht bereit gespielt wird
         {
             if (flashRoutine != null)
             {
@@ -31,7 +31,7 @@ using UnityEngine;
             flashRoutine = StartCoroutine(FlashRoutine());
         }
 
-        private IEnumerator FlashRoutine()
+        private IEnumerator FlashRoutine() //Schaden Effekt wird ausgeführt
         {
 
             foreach (SpriteRenderer thisSpriteRenderer in spriteRenderers)

@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
-    private void Awake() 
+    private void Awake() //Für Jeden Sound wird eine Audioquelle erstellt am Anfang und Einstellungsmöglichkeiten für den Inspektor hinzugefügt
     {
 
         foreach (Sound s in sounds)

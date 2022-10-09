@@ -25,7 +25,7 @@ public class Slime : MonoBehaviour
         }
     }
 
-    private bool IsGrounded()
+    private bool IsGrounded()   //Überprüfung ob das Objekt am Boden ist
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }

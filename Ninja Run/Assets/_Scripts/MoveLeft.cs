@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed;
 
-    void LateUpdate()
+    void FixedUpdate()
     {
-        transform.Translate(Vector2.left * Time.deltaTime * speed);
+        transform.Translate(Vector2.left * speed * Time.deltaTime);
     }
 }

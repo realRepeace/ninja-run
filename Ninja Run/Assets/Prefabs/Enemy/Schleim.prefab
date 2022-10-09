@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5677960352727831817}
   - component: {fileID: 8203392711804254447}
   - component: {fileID: 7501495858343012907}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Schleim
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -141,7 +141,6 @@ MonoBehaviour:
   hitSplash: {fileID: 6107275109628080678, guid: ef2335ce89659eb4c871fb403587f997, type: 3}
   hitSplashSmall: {fileID: 6107275109628080678, guid: ca064195f70cba441a42febfe9616052, type: 3}
   hitFlash: {fileID: 7501495858343012907}
-  damageSound: {fileID: 8300000, guid: 9787e375852aa804a809ca525e62ef3d, type: 3}
 --- !u!114 &7501495858343012907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5115080727080040776}
   - component: {fileID: 5115080727080040777}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Schleim_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5115080727738477701}
   - component: {fileID: 5115080727738477698}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Schleim_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5115080728257596680}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4888121882578584640}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

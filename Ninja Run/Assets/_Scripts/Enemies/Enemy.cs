@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
         health = maxHealth;
     }
 
-    public void TakeDamage(float damageAmount)
+    public void TakeDamage(float damageAmount) //Alle zusammenhängenden Aktionen werden abgespielt, wenn der Gegner Schaden erleidet
     {
         health -= damageAmount;
         Instantiate(hitSplashSmall, transform.position, Quaternion.identity);

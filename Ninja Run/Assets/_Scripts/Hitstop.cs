@@ -6,7 +6,7 @@ public class Hitstop : MonoBehaviour
 {
     bool waiting;
 
-    public void Stop(float duration)
+    public void Stop(float duration) //Stop Effekt wird ausgeführt
     {
         if (waiting)
         {
@@ -16,7 +16,7 @@ public class Hitstop : MonoBehaviour
         StartCoroutine(Wait(duration));
     }
 
-    IEnumerator Wait(float duration)
+    IEnumerator Wait(float duration) //Stop Effekt wird wieder zurückgesetzt
     {
         yield return new WaitForSecondsRealtime(duration);
         Time.timeScale = 1.0f;

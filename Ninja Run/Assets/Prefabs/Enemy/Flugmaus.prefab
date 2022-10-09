@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 509242935854240035}
   - component: {fileID: 509242935854240034}
   - component: {fileID: -2098994880177377673}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Flugmaus
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 3
+  maxHealth: 0.5
   rb: {fileID: 509242935854240035}
   hitSplash: {fileID: 6107275109628080678, guid: ef2335ce89659eb4c871fb403587f997, type: 3}
   hitSplashSmall: {fileID: 6107275109628080678, guid: ca064195f70cba441a42febfe9616052, type: 3}
@@ -83,14 +83,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 0
 --- !u!61 &509242935854240034
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,7 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204d7a129bc25d24e9268d906104026e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 509242935854240035}
+  flugdistanz: 0.2
 --- !u!1 &509242935915331607
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509242935915331604}
   - component: {fileID: 509242935915331605}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "K\xF6rper"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509242935949820071}
   - component: {fileID: 509242935949820068}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "linker Fl\xFCgel"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509242936692753341}
   - component: {fileID: 509242936692753338}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "rechter Fll\xFCgel"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509242937005923612}
   - component: {fileID: 509242937005923613}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Auge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509242937050899130}
   - component: {fileID: 838069196326875772}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509242937055634746}
   - component: {fileID: 509242937055634747}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Schleim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509242937241970665}
   - component: {fileID: 509242937241970662}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Schleim2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509242937479127370}
   - component: {fileID: 509242937479127371}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mund
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,7 +789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509242937542398884}
   - component: {fileID: 509242937542398885}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Schleim1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -871,7 +872,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1584634425671723692}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fluggrenze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
