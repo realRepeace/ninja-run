@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject schwertSeitePrefab;
     public Transform groundCheck;
     public LayerMask groundLayer;
+
+    [Header ("Scripts")]
     public GameOverScript gameOverScript;
 
     [Header ("Particle")]
@@ -167,15 +169,6 @@ public class PlayerMovement : MonoBehaviour
                 GameOver();
             }
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other) { //Zusammenstoß mit anderen Triggerobjekten wird geregelt 
-        if (other.gameObject.CompareTag("Coin"))
-        {
-            CoinManager.coinAmount += 1;
-            FindObjectOfType<AudioManager>().Play("pickupCoin");
-            Destroy(other.gameObject);
         }
     }
 
