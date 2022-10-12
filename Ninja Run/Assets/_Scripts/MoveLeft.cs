@@ -5,6 +5,11 @@ using UnityEngine;
 public class MoveLeft : MonoBehaviour
 {
     public float speed;
+    public float startpos;
+
+    private void Start() {
+        startpos = transform.position.x;
+    }
 
     void FixedUpdate()
     {
