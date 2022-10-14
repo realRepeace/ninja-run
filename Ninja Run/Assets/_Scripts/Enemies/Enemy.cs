@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject hitSplash;
     public GameObject hitSplashSmall;
+    public GameObject bloodsplash;
     public HitFlash hitFlash;
 
     private void Start() {
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            Instantiate(bloodsplash, transform.position, Quaternion.identity);
             Instantiate(hitSplash, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

@@ -140,6 +140,7 @@ MonoBehaviour:
   rb: {fileID: 5805773001796556256}
   hitSplash: {fileID: 6107275109628080678, guid: ef2335ce89659eb4c871fb403587f997, type: 3}
   hitSplashSmall: {fileID: 6107275109628080678, guid: ca064195f70cba441a42febfe9616052, type: 3}
+  bloodsplash: {fileID: 6087195292345335417, guid: afc346e0727ea354f8370b73017103b1, type: 3}
   hitFlash: {fileID: 7501495858343012907}
 --- !u!114 &7501495858343012907
 MonoBehaviour:
