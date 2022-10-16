@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameOverScript : MonoBehaviour
 {
     public TextMeshProUGUI text;
-    
+    public Animator transitionAnim;
 
     public void Setup(int score)
     {
@@ -17,13 +17,20 @@ public class GameOverScript : MonoBehaviour
 
     public void RestartButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1;
+        StartCoroutine(LoadScene(SceneManager.GetActiveScene().name));
     }
 
     public void MenuButton()
     {
-        SceneManager.LoadScene("Hauptmenu");
+        StartCoroutine(LoadScene("Hauptmenu"));
+    }
+
+      IEnumerator LoadScene(string sceneName)
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSecondsRealtime(0.5f);
+        
+        SceneManager.LoadScene(sceneName);
         Time.timeScale = 1;
     }
 }

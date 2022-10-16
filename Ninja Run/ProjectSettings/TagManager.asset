@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - GameManager
   - AudioManager
+  - Pilz
   layers:
   - Default
   - TransparentFX

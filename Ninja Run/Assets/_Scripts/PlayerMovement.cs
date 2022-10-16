@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (transform.position.x < startPos - 3.5f)
             {
-                GameOver();
+                currentHealth = 0;
             }
             rb.AddForce(Vector2.right * movementSpeed);
             
@@ -81,6 +81,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (transform.position.y < -6.36f)
+        {
+            currentHealth = 0;
+        }
+
+        if (currentHealth <= 0)
         {
             GameOver();
         }

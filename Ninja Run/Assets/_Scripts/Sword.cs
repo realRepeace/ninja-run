@@ -10,7 +10,7 @@ public class Sword : MonoBehaviour
     public Rigidbody2D playerRb;
     public PlayerMovement _playerMovement;
 
-    private void OnTriggerEnter2D(Collider2D other) {
+        private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
             enemyComponent.TakeDamage(damage);
@@ -21,9 +21,12 @@ public class Sword : MonoBehaviour
                 _playerMovement.ResetVelocity(playerRb);
                 playerRb.AddForce(Vector2.up * verticalKnockback, ForceMode2D.Impulse);
             }
-            
-            
         }
-        
-    } 
+        if (other.gameObject.CompareTag("Pilz"))
+            {
+                Debug.Log("YALLALAL");
+                _playerMovement.ResetVelocity(playerRb);
+                playerRb.AddForce(Vector2.up * verticalKnockback * 1.5f, ForceMode2D.Impulse);
+            }
+        } 
 }

@@ -1,16 +1,25 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    
+    public Animator transitionAnim;
+
     public void GoToScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        StartCoroutine(LoadScene(sceneName));
     }
 
     public void QuitApp()
     {
         Application.Quit();
+    }
+
+    IEnumerator LoadScene(string sceneName)
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(sceneName);
     }
 }
