@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header ("Particle")]
     public ParticleSystem dustParticle;
+    public ParticleSystem damageTakenParticle;
 
     [Header ("iFrames")]
     public float iFramesDuration;
@@ -168,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
             if (currentHealth > 0)
             {
                 anim.SetTrigger("damageTaken");
+                Instantiate(damageTakenParticle, transform.position, transform.rotation) ;
                 FindObjectOfType<Hitstop>().Stop(0.2f);
                 StartCoroutine(Invulnerability());
             } else if (currentHealth == 0) {
