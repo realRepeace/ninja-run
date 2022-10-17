@@ -9,6 +9,7 @@ public class Sword : MonoBehaviour
     private float verticalKnockback = 14f;
     public Rigidbody2D playerRb;
     public PlayerMovement _playerMovement;
+    public ParticleSystem mushroomParticle;
 
         private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
@@ -24,7 +25,7 @@ public class Sword : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Pilz"))
             {
-                Debug.Log("YALLALAL");
+                Instantiate(mushroomParticle, transform.position, transform.rotation);
                 _playerMovement.ResetVelocity(playerRb);
                 playerRb.AddForce(Vector2.up * verticalKnockback * 1.5f, ForceMode2D.Impulse);
             }

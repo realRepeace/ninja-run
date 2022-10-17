@@ -11,7 +11,7 @@ public class Coin : MonoBehaviour
         {
             CoinManager.coinAmount += 1;
             FindObjectOfType<AudioManager>().Play("pickupCoin");
-            Instantiate(collectCoin, transform.position, transform.rotation ) ;
+            Instantiate(collectCoin, transform.position, transform.rotation) ;
             Destroy(gameObject);
         }
     }
