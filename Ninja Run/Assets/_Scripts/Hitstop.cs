@@ -12,7 +12,7 @@ public class Hitstop : MonoBehaviour
         {
             return;
         }
-        Time.timeScale = 0.0f;
+        Time.timeScale = 0.05f;
         StartCoroutine(Wait(duration));
     }
 

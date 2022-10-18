@@ -11,7 +11,7 @@ public class MoveLeft : MonoBehaviour
         startpos = transform.position.x;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
     }

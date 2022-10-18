@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -32,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     
     
     private bool inputOnGround = true;
-    private bool iFramesActive = false;
+    public bool iFramesActive = false;
     private float jumpingPower = 20f;
     private float movementSpeed = 30f;
     private float nextTimeToFire = 0f;
@@ -166,13 +164,13 @@ public class PlayerMovement : MonoBehaviour
             if (iFramesActive == false)
             {
             currentHealth -= 1;
+            anim.SetTrigger("damageTaken");
+            Instantiate(damageTakenParticle, transform.position, transform.rotation) ;
             if (currentHealth > 0)
             {
-                anim.SetTrigger("damageTaken");
-                Instantiate(damageTakenParticle, transform.position, transform.rotation) ;
-                FindObjectOfType<Hitstop>().Stop(0.2f);
+                FindObjectOfType<Hitstop>().Stop(0.3f);
                 StartCoroutine(Invulnerability());
-            } else if (currentHealth == 0) {
+            } else {
                 GameOver();
             }
             }
@@ -205,6 +203,6 @@ public class PlayerMovement : MonoBehaviour
 
         anim.SetTrigger("isDead");
         input.actions.Disable();
-        Time.timeScale = 0;
+        Time.timeScale = Mathf.Lerp(1, 0.1f, 50);
     }
 }
