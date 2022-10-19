@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [Header ("Particle")]
     public ParticleSystem dustParticle;
     public ParticleSystem damageTakenParticle;
+    public ParticleSystem deathParticle;
 
     [Header ("iFrames")]
     public float iFramesDuration;
@@ -200,9 +201,10 @@ public class PlayerMovement : MonoBehaviour
     public void GameOver() 
     {
         gameOverScript.Setup(CoinManager.coinAmount);
-
         anim.SetTrigger("isDead");
         input.actions.Disable();
+        Instantiate(deathParticle, transform.position, transform.rotation) ;
         Time.timeScale = Mathf.Lerp(1, 0.1f, 50);
+        gameObject.SetActive(false);
     }
 }
