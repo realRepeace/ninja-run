@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1900004912540413827}
   - component: {fileID: -3341908282378846989}
   - component: {fileID: 8653613638675472940}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Pilz
   m_TagString: Pilz
   m_Icon: {fileID: 0}

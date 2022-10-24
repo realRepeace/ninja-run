@@ -1,33 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
 
-public class GameOverScript : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
-    public TextMeshProUGUI text;
+    public static bool GameIsPaused = false;
+    public GameObject pauseMenu;
     public Animator transitionAnim;
 
-    public void Setup(int score)
+    public void Pause()
     {
-        gameObject.SetActive(true);
-        text.text = score.ToString() + " COINS";
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
     }
 
     public void RestartButton()
     {
-        PauseMenu.GameIsPaused = false;
+        GameIsPaused = false;
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().name));
     }
 
-    public void MenuButton()
+    public void Home()
     {
-        PauseMenu.GameIsPaused = false;
+        GameIsPaused = false;
         StartCoroutine(LoadScene("Hauptmenu"));
     }
 
-      IEnumerator LoadScene(string sceneName)
+    IEnumerator LoadScene(string sceneName)
     {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSecondsRealtime(0.5f);

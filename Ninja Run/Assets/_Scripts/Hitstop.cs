@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Hitstop : MonoBehaviour
 {
-    bool waiting;
+    bool isWaiting;
 
     public void Stop(float duration) //Stop Effekt wird ausgeführt
     {
-        if (waiting)
+        if (isWaiting && PauseMenu.GameIsPaused == true)
         {
             return;
         }
@@ -18,7 +18,13 @@ public class Hitstop : MonoBehaviour
 
     IEnumerator Wait(float duration) //Stop Effekt wird wieder zurückgesetzt
     {
+
         yield return new WaitForSecondsRealtime(duration);
-        Time.timeScale = 1.0f;
+        if ( PauseMenu.GameIsPaused == true)
+        {
+            Time.timeScale = 0.0f;
+        } else {
+            Time.timeScale = 1.0f;
+        }
     }
 }

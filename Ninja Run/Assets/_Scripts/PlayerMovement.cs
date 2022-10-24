@@ -129,7 +129,6 @@ public class PlayerMovement : MonoBehaviour
                 schwertSeitePrefab.SetActive(true);
                 inputOnGround = true;
             }
-
             StartCoroutine(SchwertDelay());
         }
     }
@@ -175,6 +174,12 @@ public class PlayerMovement : MonoBehaviour
                 GameOver();
             }
             }
+        }
+
+        if (other.gameObject.CompareTag("Pilz"))
+        {
+            ResetVelocity(rb);
+            rb.AddForce(Vector2.up * 10.5f, ForceMode2D.Impulse);
         }
     }
 

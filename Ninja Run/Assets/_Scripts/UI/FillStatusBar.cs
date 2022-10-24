@@ -8,6 +8,8 @@ public class FillStatusBar : MonoBehaviour
     public PlayerMovement playerMovement;
     public Image fillImage;
     private Slider slider;
+    public Image startImage;
+    public Image endImage;
 
 
     void Start()
@@ -21,10 +23,14 @@ public class FillStatusBar : MonoBehaviour
         if (slider.value <= slider.minValue)
         {
             fillImage.enabled = false;
+            startImage.enabled = false;
+            endImage.enabled = false;
         }
         if (slider.value > slider.minValue && !fillImage.enabled)
         {
             fillImage.enabled = true;
+            startImage.enabled = true;
+            endImage.enabled = true;
         }
 
         float fillValue = playerMovement.currentHealth / playerMovement.maxHealth;

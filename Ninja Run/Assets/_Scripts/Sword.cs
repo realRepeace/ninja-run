@@ -23,9 +23,9 @@ public class Sword : MonoBehaviour
             }
         }
         if (other.gameObject.CompareTag("Pilz"))
-            {
-                _playerMovement.ResetVelocity(playerRb);
-                playerRb.AddForce(Vector2.up * verticalKnockback * 1.5f, ForceMode2D.Impulse);
-            }
+        {
+            _playerMovement.ResetVelocity(playerRb);
+            playerRb.AddForce(Vector2.up * verticalKnockback * 1.5f, ForceMode2D.Impulse);
+        }
         } 
 }

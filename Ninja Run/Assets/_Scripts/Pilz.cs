@@ -15,6 +15,16 @@ public class Pilz : MonoBehaviour
         if (other.gameObject.CompareTag("Weapon"))
         {
             hitAnimation.SetTrigger("gotHit");
+            FindObjectOfType<AudioManager>().Play("pilz sound");
+            mushroomParticle.Play();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+         if (other.gameObject.CompareTag("Player"))
+        {
+            hitAnimation.SetTrigger("gotHit");
+            FindObjectOfType<AudioManager>().Play("pilz sound");
             mushroomParticle.Play();
         }
     }
