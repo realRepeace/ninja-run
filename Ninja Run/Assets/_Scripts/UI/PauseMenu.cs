@@ -25,13 +25,11 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartButton()
     {
-        GameIsPaused = false;
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().name));
     }
 
     public void Home()
     {
-        GameIsPaused = false;
         StartCoroutine(LoadScene("Hauptmenu"));
     }
 

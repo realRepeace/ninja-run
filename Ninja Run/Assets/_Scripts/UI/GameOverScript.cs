@@ -17,13 +17,11 @@ public class GameOverScript : MonoBehaviour
 
     public void RestartButton()
     {
-        PauseMenu.GameIsPaused = false;
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().name));
     }
 
     public void MenuButton()
     {
-        PauseMenu.GameIsPaused = false;
         StartCoroutine(LoadScene("Hauptmenu"));
     }
 
