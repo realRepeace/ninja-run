@@ -16,6 +16,15 @@ public class Sound //Um Sound in Inspektor zu ändern
 
     public bool loop;
 
+    public bool RandomPitch;
+
+    [Range(0.5f, 1.5f)]
+    public float MinPitch;
+
+    [Range(0.5f, 1.5f)]
+    public float MaxPitch;
+
+
 
     [HideInInspector]
     public AudioSource source;

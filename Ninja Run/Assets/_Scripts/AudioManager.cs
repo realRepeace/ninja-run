@@ -28,6 +28,10 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
+        if (s.RandomPitch == true)
+        {
+            s.source.pitch = UnityEngine.Random.Range(s.MinPitch, s.MaxPitch);
+        }
         s.source.PlayOneShot(s.clip);
     }
 }

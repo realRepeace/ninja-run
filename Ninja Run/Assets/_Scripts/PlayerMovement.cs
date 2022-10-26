@@ -213,4 +213,12 @@ public class PlayerMovement : MonoBehaviour
         Time.timeScale = Mathf.Lerp(1, 0.1f, 50);
         gameObject.SetActive(false);
     }
+
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("PAUSE");
+        }
+    }
 }

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenu;
     public Animator transitionAnim;
+    public  PlayerInput player;
 
     public void Pause()
     {
@@ -40,5 +42,13 @@ public class PauseMenu : MonoBehaviour
         
         SceneManager.LoadScene(sceneName);
         Time.timeScale = 1;
+    }
+
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Pause();
+        }
     }
 }
