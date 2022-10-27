@@ -52,6 +52,10 @@ public class PlayerMovement : MonoBehaviour
         currentHealth = maxHealth;
         startPos = rb.position.x;
         PauseMenu.GameIsPaused = false;
+        if (!FindObjectOfType<InputManager>().playerActionMapActive)
+        {
+            FindObjectOfType<InputManager>().SwitchActionMap();
+        }
     }
 
     void FixedUpdate() //Abfragen ob Spieler tod ist und Animationen
@@ -208,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
     {
         gameOverScript.Setup(CoinManager.coinAmount);
         anim.SetTrigger("isDead");
-        //input.actions.Disable();
+        FindObjectOfType<InputManager>().SwitchActionMap();
         Instantiate(deathParticle, transform.position, transform.rotation) ;
         Time.timeScale = Mathf.Lerp(1, 0.1f, 50);
         gameObject.SetActive(false);
