@@ -11,6 +11,7 @@ TagManager:
   - AudioManager
   - Pilz
   - Weapon
+  - Destructable
   layers:
   - Default
   - TransparentFX

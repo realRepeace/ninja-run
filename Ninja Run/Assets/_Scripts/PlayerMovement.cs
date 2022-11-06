@@ -15,11 +15,15 @@ public class PlayerMovement : MonoBehaviour
 
     [Header ("Scripts")]
     public GameOverScript gameOverScript;
+    public ZoomEffect zoomEffect;
 
     [Header ("Particle")]
     public ParticleSystem dustParticle;
     public ParticleSystem damageTakenParticle;
     public ParticleSystem deathParticle;
+    public ParticleSystem chargeAttackParticle;
+    public ParticleSystem attackChargedParticle;
+    public ParticleSystem attackChargedAura;
 
     [Header ("iFrames")]
     public float iFramesDuration;
@@ -31,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     
     
     private bool inputOnGround = true;
+    private bool attackChargedOnce = true;
     public bool iFramesActive = false;
     private float jumpingPower = 20f;
     private float movementSpeed = 30f;
@@ -38,11 +43,15 @@ public class PlayerMovement : MonoBehaviour
     private float fireRate = 7f;
     private float nextTimeToAttack = 0f;
     private float attackRate = 7f;
+    private float chargeTime = 1.5f;
     private Vector3 Wurfabstand = new Vector3(1.5f, 0, 0);
     private float startPos;
     private Animator anim;
     private AudioSource playerAudio;
     private PlayerInput input;
+
+    private float timer;
+    private bool timerOn;
 
 
     private void Start() {
@@ -51,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         input = GetComponent<PlayerInput>();
         currentHealth = maxHealth;
         startPos = rb.position.x;
+        timer = 0;
         PauseMenu.GameIsPaused = false;
         if (!FindObjectOfType<InputManager>().playerActionMapActive)
         {
@@ -60,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate() //Abfragen ob Spieler tod ist und Animationen
     {
-
         if (IsGrounded() == true)
         {
             anim.SetBool("isJumping", false);
@@ -69,30 +78,11 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isJumping", true);
         }
 
-        if (rb.position.x < startPos)
-        {
-            if (transform.position.x < startPos - 3.5f)
-            {
-                currentHealth = 0;
-            }
-            rb.AddForce(Vector2.right * movementSpeed);
-            
-        } 
+        IsPlayerDead();
         
-        if (rb.position.x > startPos)
+        if (currentHealth > 0)
         {
-            rb.position = new Vector2(startPos, rb.position.y);
-           //rb.velocity = new Vector2(0.1f, rb.velocity.y);
-        }
-
-        if (transform.position.y < -6.36f)
-        {
-            currentHealth = 0;
-        }
-
-        if (currentHealth <= 0)
-        {
-            GameOver();
+            Timer();
         }
     }
 
@@ -135,6 +125,52 @@ public class PlayerMovement : MonoBehaviour
                 inputOnGround = true;
             }
             StartCoroutine(SchwertDelay());
+        }
+    }
+
+    public void SpecialAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            timerOn = true;
+            attackChargedOnce = true;
+            chargeAttackParticle.Play();
+        }
+
+        if (context.canceled)
+        {
+            chargeAttackParticle.Stop();
+            attackChargedAura.Stop();
+            if (timer > chargeTime)
+            {
+                rb.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
+                Instantiate(projectilePrefab, transform.position + Wurfabstand, projectilePrefab.transform.rotation);
+            } 
+            timerOn = false;
+        }
+
+    }
+
+    void Timer()
+    {
+        if (timerOn)
+        {
+            timer += Time.deltaTime;
+            zoomEffect.ZoomScreen();
+        }
+        else{
+            timer = 0;
+            zoomEffect.ZoomOut();
+        }
+        if (timer > chargeTime)
+        {
+             chargeAttackParticle.Stop();
+             if (attackChargedOnce)
+             {
+                attackChargedParticle.Play();
+                attackChargedAura.Play();
+                attackChargedOnce = false;
+             }
         }
     }
 
@@ -216,6 +252,34 @@ public class PlayerMovement : MonoBehaviour
         Instantiate(deathParticle, transform.position, transform.rotation) ;
         Time.timeScale = Mathf.Lerp(1, 0.1f, 50);
         gameObject.SetActive(false);
+    }
+
+    private void IsPlayerDead()
+    {
+        if (rb.position.x < startPos)
+        {
+            if (transform.position.x < startPos - 3.5f)
+            {
+                currentHealth = 0;
+            }
+            rb.AddForce(Vector2.right * movementSpeed);
+            
+        } 
+        
+        if (rb.position.x > startPos)
+        {
+            rb.position = new Vector2(startPos, rb.position.y);
+        }
+
+        if (transform.position.y < -6.36f)
+        {
+            currentHealth = 0;
+        }
+
+        if (currentHealth <= 0)
+        {
+            GameOver();
+        } 
     }
 
     public void Pause(InputAction.CallbackContext context)
