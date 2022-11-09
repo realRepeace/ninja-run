@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [Header ("Prefabs")]
     public Rigidbody2D rb;
     public GameObject projectilePrefab;
+    public GameObject kunaiPrefab;
     public GameObject schwertUntenPrefab;
     public GameObject schwertSeitePrefab;
     public Transform groundCheck;
@@ -45,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     private float attackRate = 7f;
     private float chargeTime = 1.5f;
     private Vector3 Wurfabstand = new Vector3(1.5f, 0, 0);
+    private Vector3 WurfabstandKunai = new Vector3(2f, 0, 0);
     private float startPos;
     private Animator anim;
     private AudioSource playerAudio;
@@ -144,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
             if (timer > chargeTime)
             {
                 rb.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
-                Instantiate(projectilePrefab, transform.position + Wurfabstand, projectilePrefab.transform.rotation);
+                Instantiate(kunaiPrefab, transform.position + Wurfabstand, kunaiPrefab.transform.rotation);
             } 
             timerOn = false;
         }

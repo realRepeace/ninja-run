@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Wurfstern : MonoBehaviour
 {
+    public GameObject explosionParticle;
+
     public float speed = 40f;
     public float rotationSpeed = 150f;
+    public float damage = 0.5f;
+    public bool canExplode = false;
 
     private float rangeLimit = 11f;
-    private float damage = 0.5f;
     private float horizontalKnockback = 3f;
 
 
@@ -33,6 +36,10 @@ public class Wurfstern : MonoBehaviour
         {
             enemyComponent.TakeDamage(damage);
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * horizontalKnockback, ForceMode2D.Impulse);
+        }
+        if (canExplode)
+        {
+            Instantiate(explosionParticle, other.transform.position, transform.rotation);
         }
         Destroy(gameObject);
     } 
