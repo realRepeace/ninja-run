@@ -12,6 +12,7 @@ TagManager:
   - Pilz
   - Weapon
   - Destructable
+  - Parallax
   layers:
   - Default
   - TransparentFX
