@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour          //Das Verhalten vom Gegner wird geregelt z.B. erhaltenen Schaden
 {
     public float health, maxHealth = 3f;
     public Rigidbody2D rb;

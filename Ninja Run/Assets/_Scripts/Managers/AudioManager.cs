@@ -2,7 +2,7 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour       //regelt die Eigenschaften und das Abspielen von Sounds im Spiel
 {
     public Sound[] sounds;
 

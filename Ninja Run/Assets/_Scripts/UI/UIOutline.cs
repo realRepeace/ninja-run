@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasRenderer))]
-public class UIOutline : MaskableGraphic
+public class UIOutline : MaskableGraphic        //regelt die Umrandung von UI Objekten
 {
     [SerializeField] Texture m_Texture;
     [SerializeField, Range(0f, 500f)] float _outlineWidth = 100f;

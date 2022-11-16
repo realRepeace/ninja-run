@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class GameOverScript : MonoBehaviour
+public class GameOverScript : MonoBehaviour         //regelt die Aktionen die passieren sobald man verloren hat
 {
     public TextMeshProUGUI text;
     public Animator transitionAnim;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BackgroundScroller : MonoBehaviour
+public class BackgroundScroller : MonoBehaviour         //ist zuständig für die Hintergrundanimation im Menü
 {
     public RawImage img;
     public float x, y;

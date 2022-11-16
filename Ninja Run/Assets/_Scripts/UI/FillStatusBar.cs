@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FillStatusBar : MonoBehaviour
+public class FillStatusBar : MonoBehaviour          //regelt die Füllung der Lebensleiste
 {
     public PlayerMovement playerMovement;
     public Image fillImage;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Cinemachine;
 
-public class ZoomEffect : MonoBehaviour
+public class ZoomEffect : MonoBehaviour         //regelt den Zoom Effekt der Kamera
 {
     public float originalSize;
     private float zoomSpeed = 3f;

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 
-    public class HitFlash : MonoBehaviour
+    public class HitFlash : MonoBehaviour       //regelt den Effekt bei dem der Gegner kurz rot aufleuchtet, falls der Gegner getroffen wird
     {
         [SerializeField] private Material flashMaterial;
         [SerializeField] private float duration;

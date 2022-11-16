@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour
+public class InputManager : MonoBehaviour         //regelt alles was mit Inputs zu tun hat z.B. Inputs wechseln
 {
     public PlayerInput control;
     public bool playerActionMapActive;

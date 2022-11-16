@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slime : MonoBehaviour
+public class Slime : MonoBehaviour      //regelt das Verhalten des Schleim Gegners
 {
     private float _distanceToTheGround;
     public Rigidbody2D rb;

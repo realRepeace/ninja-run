@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour     //regelt das Verhalten des Spielers z.B. Springen, Lebenanzahl, Animationen, Partikel
 {
     [Header ("Prefabs")]
     public Rigidbody2D rb;

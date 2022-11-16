@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pilz : MonoBehaviour
+public class Pilz : MonoBehaviour       //regelt das Verhalten des Pilzes z.B. dass der Spieler höher springt
 {
     public ParticleSystem mushroomParticle;
     private Animator hitAnimation;

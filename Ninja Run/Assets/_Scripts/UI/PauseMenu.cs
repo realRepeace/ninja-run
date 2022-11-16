@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour          //regelt alle Aktionen, die verbunden mit dem Pausenmenü geschehen
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenu;
