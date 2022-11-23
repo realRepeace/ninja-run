@@ -16046,10 +16046,6 @@ PrefabInstance:
       propertyPath: gameOverScript
       value: 
       objectReference: {fileID: 283137639}
-    - target: {fileID: 2757849577469270185, guid: df58423782677d84f8aa5e6d7abbb5e2, type: 3}
-      propertyPath: confettiParticle
-      value: 
-      objectReference: {fileID: 2736432045341472623, guid: d48d9019fc64552468e995823f44d80b, type: 3}
     - target: {fileID: 2757849577469270187, guid: df58423782677d84f8aa5e6d7abbb5e2, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -22518,10 +22514,6 @@ PrefabInstance:
       propertyPath: gameOverScript
       value: 
       objectReference: {fileID: 283137639}
-    - target: {fileID: 2757849577469270185, guid: df58423782677d84f8aa5e6d7abbb5e2, type: 3}
-      propertyPath: confettiParticle
-      value: 
-      objectReference: {fileID: 2736432045341472623, guid: d48d9019fc64552468e995823f44d80b, type: 3}
     - target: {fileID: 2757849577469270187, guid: df58423782677d84f8aa5e6d7abbb5e2, type: 3}
       propertyPath: m_RootOrder
       value: 2
