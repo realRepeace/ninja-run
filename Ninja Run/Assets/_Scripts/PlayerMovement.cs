@@ -136,7 +136,6 @@ public class PlayerMovement : MonoBehaviour     //regelt das Verhalten des Spiel
         {
             timerOn = true;
             attackChargedOnce = true;
-            chargeAttackParticle.Play();
         }
 
         if (context.canceled)
@@ -158,7 +157,11 @@ public class PlayerMovement : MonoBehaviour     //regelt das Verhalten des Spiel
         if (timerOn)
         {
             timer += Time.deltaTime;
-            zoomEffect.ZoomScreen();
+            if (timer > 0.1f)
+            {
+                zoomEffect.ZoomScreen();
+                chargeAttackParticle.Play();
+            }
         }
         else{
             timer = 0;
