@@ -5,17 +5,20 @@ using TMPro;
 
 public class CoinManager : MonoBehaviour        //regelt das Einsammeln von Münzen im UI
 {
-    [HideInInspector] public TextMeshProUGUI text;
+    [HideInInspector] public TextMeshProUGUI coinText;
     public static int coinAmount;
 
     void Start()
     {
-        text = GetComponent<TextMeshProUGUI>(); 
+        coinAmount = SaveManager.instance.currentCoins;
+        coinText = GetComponent<TextMeshProUGUI>(); 
     }
 
     
     void Update()
     {
-        text.text = coinAmount.ToString();
+        coinText.text = coinAmount.ToString();
+        SaveManager.instance.currentCoins = coinAmount;
+        SaveManager.instance.Save();
     }
 }
