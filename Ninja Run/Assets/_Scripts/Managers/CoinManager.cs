@@ -7,17 +7,24 @@ public class CoinManager : MonoBehaviour        //regelt das Einsammeln von Mün
 {
     [HideInInspector] public TextMeshProUGUI coinText;
     public static int coinAmount;
-
+    public int currentLevelCoins;
+    
     void Start()
     {
         coinAmount = SaveManager.instance.currentCoins;
-        coinText = GetComponent<TextMeshProUGUI>(); 
+        if (gameObject.GetComponent<TextMeshProUGUI>() != null)
+        {
+            coinText = GetComponent<TextMeshProUGUI>(); 
+        }
     }
 
     
     void Update()
     {
-        coinText.text = coinAmount.ToString();
+        if (gameObject.GetComponent<TextMeshProUGUI>() != null)
+        {
+            coinText.text = coinAmount.ToString();
+        }
         SaveManager.instance.currentCoins = coinAmount;
         SaveManager.instance.Save();
     }

@@ -23,5 +23,10 @@ public class CheatsManager : MonoBehaviour
         {
             CoinManager.coinAmount = 0;
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            CoinManager.coinAmount += 100;
+        }
     }
 }

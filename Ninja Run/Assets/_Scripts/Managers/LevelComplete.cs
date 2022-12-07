@@ -7,7 +7,9 @@ public class LevelComplete : MonoBehaviour          //regelt alles was passiert 
     public GameObject player;
     public GameObject movingBg;
     public GameObject confettiParticle;
+    
     public GameOverScript gameOverScript;
+    public CoinManager coinManager;
     
     private GameObject[ ] parallaxBg;
 
@@ -27,7 +29,7 @@ public class LevelComplete : MonoBehaviour          //regelt alles was passiert 
             {
                 gameObject.GetComponent<Parallax>().enabled = false;
             }
-            gameOverScript.Setup(CoinManager.coinAmount);
+            gameOverScript.Setup(coinManager.currentLevelCoins);
         }
     }
 }

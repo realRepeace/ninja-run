@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour     //regelt das Verhalten des Spiel
     [Header ("Scripts")]
     public GameOverScript gameOverScript;
     public ZoomEffect zoomEffect;
+    public CoinManager coinManager;
 
     [Header ("Particle")]
     public ParticleSystem dustParticle;
@@ -251,7 +252,7 @@ public class PlayerMovement : MonoBehaviour     //regelt das Verhalten des Spiel
 
     public void GameOver() 
     {
-        gameOverScript.Setup(CoinManager.coinAmount);
+        gameOverScript.Setup(coinManager.currentLevelCoins);
         anim.SetTrigger("isDead");
         FindObjectOfType<InputManager>().SwitchActionMap();
         Instantiate(deathParticle, transform.position, transform.rotation) ;
