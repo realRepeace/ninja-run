@@ -8,7 +8,7 @@ public class Tween : MonoBehaviour
     public void Open()
     {
         LeanTween.scale(gameObject, new Vector3(1f, 1f, 1f), 0.8f).setDelay(0.1f).setEase(LeanTweenType.easeOutExpo);
-    }
+    } 
 
     public void Close()
     {
