@@ -281,6 +281,17 @@
                 },
                 {
                     "name": "",
+                    "id": "48381b53-5baa-4c0f-96a7-c2580b796c36",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Wurf",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "70e42e55-74ad-46ec-866b-4b8ac0ff1474",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -294,6 +305,17 @@
                     "name": "",
                     "id": "f41ff01a-5590-4788-bd8a-f1575564d1e0",
                     "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Schwert",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "72e0caed-9740-472f-902e-274f7fb47fa9",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
