@@ -9,7 +9,7 @@ public class GameOverScript : MonoBehaviour         //regelt die Aktionen die pa
     public TextMeshProUGUI text;
     public Animator transitionAnim;
 
-    public void Setup(int score)
+    public void Setup(int score)        //aktiviert UI und gibt gesammelte Coinzahl aus
     {
         gameObject.SetActive(true);
         text.text = score.ToString() + " COINS";
@@ -25,7 +25,7 @@ public class GameOverScript : MonoBehaviour         //regelt die Aktionen die pa
         StartCoroutine(LoadScene("Hauptmenu"));
     }
 
-      IEnumerator LoadScene(string sceneName)
+      IEnumerator LoadScene(string sceneName)       //definiert den Szenenübergang
     {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSecondsRealtime(0.5f);

@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour         //regelt alles was mit Inputs 
     public bool playerActionMapActive;
 
 
-    public void SwitchActionMap()
+    public void SwitchActionMap()       //Ändert die Steuerung auf UI/Spieler um
     {
        if (playerActionMapActive)
        {

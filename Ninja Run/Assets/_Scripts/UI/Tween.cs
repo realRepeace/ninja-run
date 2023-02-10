@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tween : MonoBehaviour
+public class Tween : MonoBehaviour  //LeanTween Animation
 {
 
     public void Open()

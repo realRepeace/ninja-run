@@ -3,14 +3,14 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public class SaveManager : MonoBehaviour
+public class SaveManager : MonoBehaviour        //regelt das speichern des aktuellen Spielstandes
 {
     public static SaveManager instance { get; private set; }
 
     public int currentSkin;
     public int currentCoins;
 
-    private void Awake()
+    private void Awake()        //am Anfang einer Szene wird überprüft, ob der "Speichermanager" bereits aktiv ist
     {
         if (instance != null && instance != this)
         {
@@ -22,7 +22,7 @@ public class SaveManager : MonoBehaviour
         Load();
     }
 
-    public void Load()
+    public void Load()          //Nach dem Starten des Spiels wird der Spielstand geladen
     {
         if (File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
         {

@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour       //regelt die Eigenschaften und d
     private void Awake() //Für Jeden Sound wird eine Audioquelle erstellt am Anfang und Einstellungsmöglichkeiten für den Inspektor hinzugefügt
     {
 
-        foreach (Sound s in sounds)
+        foreach (Sound s in sounds)   
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour       //regelt die Eigenschaften und d
         }
         if (s.RandomPitch == true)
         {
-            s.source.pitch = UnityEngine.Random.Range(s.MinPitch, s.MaxPitch);
+            s.source.pitch = UnityEngine.Random.Range(s.MinPitch, s.MaxPitch);  //zufällige Tonhöhe Einstellbalken im Editor
         }
         s.source.PlayOneShot(s.clip);
     }

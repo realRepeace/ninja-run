@@ -49,7 +49,13 @@ public class PauseMenu : MonoBehaviour          //regelt alle Aktionen, die verb
     {
         if (context.performed)
         {
-            Pause();
+            if (GameIsPaused == false)
+            {
+                Pause();
+            } else 
+            {
+                Resume();
+            }
         }
     }
 }

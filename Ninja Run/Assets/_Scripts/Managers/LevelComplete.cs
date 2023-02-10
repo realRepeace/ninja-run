@@ -29,7 +29,7 @@ public class LevelComplete : MonoBehaviour          //regelt alles was passiert 
             {
                 gameObject.GetComponent<Parallax>().enabled = false;
             }
-            gameOverScript.Setup(coinManager.currentLevelCoins);
+            gameOverScript.Setup(coinManager.currentLevelCoins);        //die UI für "Level geschafft" wird aufgerufen
         }
     }
 }

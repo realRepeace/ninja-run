@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheatsManager : MonoBehaviour
+public class CheatsManager : MonoBehaviour      //regelt Cheats, die das Testen von Elementen erleichtern
 {
     // Update is called once per frame
     void Update()

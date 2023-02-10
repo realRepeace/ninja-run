@@ -26,6 +26,6 @@ public class CoinManager : MonoBehaviour        //regelt das Einsammeln von Mün
             coinText.text = coinAmount.ToString();
         }
         SaveManager.instance.currentCoins = coinAmount;
-        SaveManager.instance.Save();
+        SaveManager.instance.Save();            //Spielstand wird gespeichert
     }
 }

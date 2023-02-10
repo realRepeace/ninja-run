@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class MapLevelTransition : MonoBehaviour
+public class MapLevelTransition : MonoBehaviour     //Übergangseffekt mit Wolken
 {
 
     public float movePositionX = 70f;
@@ -13,7 +13,7 @@ public class MapLevelTransition : MonoBehaviour
 
     public void CloudTransition()
     {
-        LeanTween.moveLocal(gameObject, new Vector3(movePositionX, 0f, 0f), 0.4f).setDelay(0.2f);
+        LeanTween.moveLocal(gameObject, new Vector3(movePositionX, 0f, 0f), 0.4f).setDelay(0.2f);   //leantween ist für die Animation von UI Element sehr praktisch
         StartCoroutine(ChangeScene(1.2f));
     }
 

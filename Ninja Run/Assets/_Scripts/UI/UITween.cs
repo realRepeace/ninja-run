@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UITween : MonoBehaviour
+public class UITween : MonoBehaviour        //LeanTween Animation für Popups
 {
     public GameObject ObjectToOpen;
     public GameObject ObjectToClose;

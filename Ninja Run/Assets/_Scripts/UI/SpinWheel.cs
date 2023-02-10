@@ -3,7 +3,7 @@ using EasyUI.PickerWheelUI;
 using UnityEngine.UI;
 using TMPro;
 
-public class SpinWheel : MonoBehaviour
+public class SpinWheel : MonoBehaviour      //regelt die Funktion des Glücksrades
 {
     [SerializeField] private Button uiSpinButton;
     [SerializeField] private TextMeshProUGUI uiSpinButtonText;
@@ -13,7 +13,7 @@ public class SpinWheel : MonoBehaviour
     private int spinPrice = 100;
 
     private void Start() {
-        uiSpinButton.onClick.AddListener (() => {
+        uiSpinButton.onClick.AddListener (() => {       //während dem Drehen wird der Button deaktiviert
             uiSpinButton.interactable = false;
             CoinManager.coinAmount -= spinPrice;
             pickerWheel.OnSpinStart(() => {
@@ -30,7 +30,7 @@ public class SpinWheel : MonoBehaviour
         });
     }
 
-    private void Update() {
+    private void Update() {     //überprüft ob Spieler genügend Geld hat um zu drehen
         if (CoinManager.coinAmount < spinPrice || pickerWheel.IsSpinning)
         {
             uiSpinButton.interactable = false;
