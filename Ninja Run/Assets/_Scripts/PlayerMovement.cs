@@ -46,8 +46,7 @@ public class PlayerMovement : MonoBehaviour     //regelt das Verhalten des Spiel
     private float nextTimeToAttack = 0f;
     private float attackRate = 7f;
     private float chargeTime = 1.5f;
-    private Vector3 Wurfabstand = new Vector3(1.5f, 0, 0);
-    private Vector3 WurfabstandKunai = new Vector3(2f, 0, 0);
+    private Vector3 wurfabstand = new Vector3(1.5f, 0, 0);
     private float startPos;
     private Animator anim;
     private AudioSource playerAudio;
@@ -110,7 +109,7 @@ public class PlayerMovement : MonoBehaviour     //regelt das Verhalten des Spiel
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             FindObjectOfType<AudioManager>().Play("throwsound");
-            Instantiate(projectilePrefab, transform.position + Wurfabstand, projectilePrefab.transform.rotation);
+            Instantiate(projectilePrefab, transform.position + wurfabstand, projectilePrefab.transform.rotation);
         }
     }
 
@@ -146,7 +145,7 @@ public class PlayerMovement : MonoBehaviour     //regelt das Verhalten des Spiel
             if (timer > chargeTime)
             {
                 rb.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
-                Instantiate(kunaiPrefab, transform.position + Wurfabstand, kunaiPrefab.transform.rotation);
+                Instantiate(kunaiPrefab, transform.position + wurfabstand, kunaiPrefab.transform.rotation);
             } 
             timerOn = false;
         }
