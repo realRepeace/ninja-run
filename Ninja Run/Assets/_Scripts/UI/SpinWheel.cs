@@ -10,6 +10,9 @@ public class SpinWheel : MonoBehaviour      //regelt die Funktion des Glücksrad
 
     [SerializeField] private PickerWheel pickerWheel;
 
+    [SerializeField] private GameObject rewardPopup;
+    [SerializeField] private TextMeshProUGUI rewardPopupText;
+
     private int spinPrice = 100;
 
     private void Start() {
@@ -23,7 +26,9 @@ public class SpinWheel : MonoBehaviour      //regelt die Funktion des Glücksrad
             pickerWheel.OnSpinEnd(wheelPiece => {
                 Debug.Log("Spin Ended: " + wheelPiece.Label + ", Amount: " + wheelPiece.Amount);
                 CoinManager.coinAmount += wheelPiece.Amount;
+                showPopup(wheelPiece.Amount);
                 uiSpinButton.interactable = true;
+                 
             });
             
             pickerWheel.Spin();
@@ -37,5 +42,11 @@ public class SpinWheel : MonoBehaviour      //regelt die Funktion des Glücksrad
         } else {
             uiSpinButton.interactable = true;
         }
+    }
+
+    private void showPopup(int wheelPiece)
+    {
+        LeanTween.scale(rewardPopup, new Vector3(1f, 1f, 1f), 0.8f).setDelay(0.1f).setEase(LeanTweenType.easeOutExpo);
+        rewardPopupText.text = wheelPiece.ToString();
     }
 }
