@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CheatsManager : MonoBehaviour      //regelt Cheats, die das Testen von Elementen erleichtern
 {
+    public GameObject moveLeft;
+    public GameObject teleportPoint;
     // Update is called once per frame
     void Update()
     {
@@ -27,6 +29,11 @@ public class CheatsManager : MonoBehaviour      //regelt Cheats, die das Testen 
         if (Input.GetKeyDown(KeyCode.G))
         {
             CoinManager.coinAmount += 100;
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            moveLeft.transform.position = new Vector2(-teleportPoint.transform.position.x, moveLeft.transform.position.y);
         }
     }
 }

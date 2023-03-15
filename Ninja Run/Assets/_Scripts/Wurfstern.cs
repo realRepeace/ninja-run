@@ -37,6 +37,10 @@ public class Wurfstern : MonoBehaviour          //regelt das Verhalten der Wurfs
             enemyComponent.TakeDamage(damage);
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * horizontalKnockback, ForceMode2D.Impulse);
         }
+        if (other.gameObject.TryGetComponent<BossHealth>(out BossHealth bossComponent))
+        {
+            bossComponent.BossTakeDamage(damage);
+        }
         if (canExplode)
         {
             Instantiate(explosionParticle, other.transform.position, transform.rotation);
