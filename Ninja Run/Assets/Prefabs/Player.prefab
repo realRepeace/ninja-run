@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 2422075942203421469}
   - component: {fileID: 2422075942203421474}
   - component: {fileID: 2131155342}
+  - component: {fileID: 2422075943555733196}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -458,6 +459,7 @@ MonoBehaviour:
     m_Bits: 8
   gameOverScript: {fileID: 0}
   zoomEffect: {fileID: 0}
+  coinManager: {fileID: 0}
   dustParticle: {fileID: 7216351133442256973}
   damageTakenParticle: {fileID: 6294361106128639977, guid: 6d090de5af7918e4e815994bbcbb727a, type: 3}
   deathParticle: {fileID: 6107275109628080696, guid: 4e0aea472a0eb9d4881d57514dcbf4d4, type: 3}
@@ -488,6 +490,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!247 &2422075943555733196
+ConstantForce2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2422075942203421465}
+  m_Enabled: 0
+  m_Force: {x: 35.01, y: 0}
+  m_RelativeForce: {x: 0, y: 0}
+  m_Torque: 0
 --- !u!1 &2422075942670417423
 GameObject:
   m_ObjectHideFlags: 0
