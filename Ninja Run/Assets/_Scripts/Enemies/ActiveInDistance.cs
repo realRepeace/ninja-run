@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ActiveInDistance : MonoBehaviour
+public class ActiveInDistance : MonoBehaviour       //aktiviert Gegner sobald sie sichtbar sind
 {
     public Rigidbody2D player;  //Ich rufe den Rigidbody2D der Spielfigur auf
     public Rigidbody2D enemy;   //Ich rufe den Rigidbody2D des gegnerischen Objekts auf

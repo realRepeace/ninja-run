@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LeafAttack : MonoBehaviour
+public class LeafAttack : MonoBehaviour     //regelt den Wurf der Blätter
 {
     public GameObject leaf;
     private Vector3 leafPoint = new Vector3(-1.36f, 1.15f, 0);

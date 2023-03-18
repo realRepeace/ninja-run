@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Death : StateMachineBehaviour
+public class Death : StateMachineBehaviour      //Während der Death Animation wird der Boss nicht treffbar
 {
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

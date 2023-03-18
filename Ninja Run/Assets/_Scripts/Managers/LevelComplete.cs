@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using TMPro;
 
 public class LevelComplete : MonoBehaviour          //regelt alles was passiert sobald man das Ziel erreicht hat
 {
@@ -10,6 +10,13 @@ public class LevelComplete : MonoBehaviour          //regelt alles was passiert 
     
     public GameOverScript gameOverScript;
     public CoinManager coinManager;
+    public PlayerMovement playerMovement;
+
+    public GameObject star2;
+    public GameObject star3;
+
+    public GameObject checkbox2;
+    public GameObject checkbox3;
 
     public int thisLevel;
     
@@ -22,7 +29,7 @@ public class LevelComplete : MonoBehaviour          //regelt alles was passiert 
     }
     
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) {   //alle Aktionen die bei Berührung des Ziels passieren
         if (other.gameObject.CompareTag("Player"))
         {
             player.GetComponent<PlayerMovement>().enabled = false;
@@ -40,6 +47,25 @@ public class LevelComplete : MonoBehaviour          //regelt alles was passiert 
                 PlayerPrefs.SetInt("currentLevel", thisLevel);
                 Debug.Log(thisLevel);
             }
+            QuestManager();
+
+        }
+    }
+
+    void QuestManager()     //Überprüfung ob die Quests geschafft wurden
+    {
+        Debug.Log("Star1 of Level " + thisLevel);
+        if (coinManager.currentLevelCoins > 30)
+        {
+            star2.SetActive(true);
+            checkbox2.SetActive(true);
+            Debug.Log("Star2 of Level " + thisLevel);
+        }
+        if (playerMovement.currentHealth == 3)
+        {
+            star3.SetActive(true);
+            checkbox3.SetActive(true);
+            Debug.Log("Star3 of Level " + thisLevel);
         }
     }
 }

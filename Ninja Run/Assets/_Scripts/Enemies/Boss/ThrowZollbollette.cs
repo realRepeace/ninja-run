@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ThrowZollbollette : MonoBehaviour
+public class ThrowZollbollette : MonoBehaviour      //regelt den Wurf der Zollbolletten
 {
     public GameObject zollbollette;
     public Transform shotPoint;

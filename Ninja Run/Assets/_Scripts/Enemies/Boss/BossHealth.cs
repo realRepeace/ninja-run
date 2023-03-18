@@ -8,6 +8,8 @@ public class BossHealth : MonoBehaviour          //Das Verhalten vom Gegner wird
     public float bossHealth, bossHealthEnrageAmount, bossMaxHealth;
     public bool invincibility = false;
 
+    public MoveLeft moveLeft;
+
     private void Start() {
         bossHealth = bossMaxHealth;
 
@@ -35,7 +37,9 @@ public class BossHealth : MonoBehaviour          //Das Verhalten vom Gegner wird
 
     public void DestroyBoss()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
+        moveLeft.bossLevel = false;
     }
 }
 

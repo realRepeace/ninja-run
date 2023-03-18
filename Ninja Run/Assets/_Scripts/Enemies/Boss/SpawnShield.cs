@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpawnShield : MonoBehaviour
+public class SpawnShield : MonoBehaviour        //regelt die Erstellung des Schildes
 {
     public GameObject shield;
     public Transform speakPoint;

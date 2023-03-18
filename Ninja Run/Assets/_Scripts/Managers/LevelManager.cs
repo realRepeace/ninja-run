@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : MonoBehaviour       //Überprüft welche Level verfügbar sind
 {
     public Button[] lvlButtons;
     // Start is called before the first frame update
     void Start()
     {
-        int currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
+        int currentLevel = PlayerPrefs.GetInt("currentLevel", 0);
 
         for (int i = 0; i < lvlButtons.Length; i++)
         {
@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
                 GameObject buttonText = lvlButtons[i].transform.GetChild(0).gameObject;
                 buttonLock.SetActive(true);
                 buttonText.SetActive(false);
-            }
+            }            
         }
     }
 }

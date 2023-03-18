@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bottle : MonoBehaviour
+public class Bottle : MonoBehaviour     //die Wurfkraft und der Winkel werden festgelegt
 {
     public Rigidbody2D rb;
     public float rangeLimit = 10f;
@@ -9,7 +9,7 @@ public class Bottle : MonoBehaviour
 
     private float speed;
 
-    private void Start() 
+    private void Start()    
     {
         Random();
         Invoke("DestroyObject", rangeLimit);

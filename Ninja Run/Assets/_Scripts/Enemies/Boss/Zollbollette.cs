@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Zollbollette : MonoBehaviour
+public class Zollbollette : MonoBehaviour       //regelt das Verhalten der Zollbollette
 {
     public float speed;
     public float rangeLimit = 10f;

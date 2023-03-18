@@ -9,6 +9,8 @@ public class MoveLeft : MonoBehaviour           //bewegt das Objekt konstant nac
     public GameObject bossStartpoint;
     public GameObject boss;
 
+    private bool bossActivated;
+
     private void Start() {
         startpos = transform.position.x;
     }
@@ -26,7 +28,11 @@ public class MoveLeft : MonoBehaviour           //bewegt das Objekt konstant nac
     {
         if(bossStartpoint.transform.position.x < 0)
         {
-            boss.SetActive(true);
+            if (bossActivated == false)
+            {
+                boss.SetActive(true);
+                bossActivated = true;
+            }
             gameObject.transform.position = new Vector2(gameObject.transform.position.x + 20, gameObject.transform.position.y);
         }
     }

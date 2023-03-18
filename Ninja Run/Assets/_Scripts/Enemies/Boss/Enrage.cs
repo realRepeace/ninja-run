@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enrage : StateMachineBehaviour
+public class Enrage : StateMachineBehaviour     //Boss ist unverwundbar während Wutanimation
 {
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

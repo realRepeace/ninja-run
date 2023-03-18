@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ThrowBottle : MonoBehaviour
+public class ThrowBottle : MonoBehaviour        //regelt den Wurf der Flasche des Bosses
 {
     public Transform shotPoint;
     public GameObject bottle;
