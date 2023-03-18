@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveLeft : MonoBehaviour           //bewegt das Objekt konstant nach links
@@ -18,12 +16,15 @@ public class MoveLeft : MonoBehaviour           //bewegt das Objekt konstant nac
     void Update()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
-        ActivateBoss();
+        if (bossLevel)
+        {
+            ActivateBoss();
+        }
     }
 
     void ActivateBoss() //aktiviert den Boss und looped das Terrain
     {
-        if(bossStartpoint.transform.position.x < 0 && bossLevel)
+        if(bossStartpoint.transform.position.x < 0)
         {
             boss.SetActive(true);
             gameObject.transform.position = new Vector2(gameObject.transform.position.x + 20, gameObject.transform.position.y);

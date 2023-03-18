@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelComplete : MonoBehaviour          //regelt alles was passiert sobald man das Ziel erreicht hat
 {
@@ -10,11 +10,15 @@ public class LevelComplete : MonoBehaviour          //regelt alles was passiert 
     
     public GameOverScript gameOverScript;
     public CoinManager coinManager;
+
+    public int thisLevel;
     
     private GameObject[ ] parallaxBg;
 
+
     private void Start() {
         parallaxBg = GameObject.FindGameObjectsWithTag("Parallax");
+        thisLevel = SceneManager.GetActiveScene().buildIndex;
     }
     
 
@@ -30,6 +34,12 @@ public class LevelComplete : MonoBehaviour          //regelt alles was passiert 
                 gameObject.GetComponent<Parallax>().enabled = false;
             }
             gameOverScript.Setup(coinManager.currentLevelCoins);        //die UI für "Level geschafft" wird aufgerufen
+
+            if(thisLevel > PlayerPrefs.GetInt("currentLevel"))
+            {
+                PlayerPrefs.SetInt("currentLevel", thisLevel);
+                Debug.Log(thisLevel);
+            }
         }
     }
 }

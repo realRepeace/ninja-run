@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using UnityEngine.UI; // required when using UI elements in scripts
 using UnityEngine.EventSystems;// Required when using Event data.
 

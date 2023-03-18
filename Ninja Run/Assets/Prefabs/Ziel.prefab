@@ -129,3 +129,10 @@ MonoBehaviour:
   confettiParticle: {fileID: 2736432045341472623, guid: d48d9019fc64552468e995823f44d80b, type: 3}
   gameOverScript: {fileID: 0}
   coinManager: {fileID: 0}
+  lvlButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  thisLevel: 0

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Vignette : MonoBehaviour           //ist zuständig für die Animation beim Wechseln der Szene

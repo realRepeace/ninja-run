@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Wurfstern : MonoBehaviour          //regelt das Verhalten der Wurfsterne z.B. Schaden an Gegner, Knockback

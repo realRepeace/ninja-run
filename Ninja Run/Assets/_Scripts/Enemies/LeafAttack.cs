@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LeafAttack : MonoBehaviour
 {
-    public Transform leafPoint;
     public GameObject leaf;
+    private Vector3 leafPoint = new Vector3(-1.36f, 1.15f, 0);
     
     public void SpawnLeaf()
     {
-    leafPoint = GameObject.FindGameObjectWithTag("LeafPoint").GetComponent<Transform>();
     Quaternion Rotation = Quaternion.Euler(0f, 0f, 0f);
-    Instantiate(leaf, leafPoint.position, Rotation);
+    Instantiate(leaf, gameObject.transform.position + leafPoint, Rotation);
     }
 }

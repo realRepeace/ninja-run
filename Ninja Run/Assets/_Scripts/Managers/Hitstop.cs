@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Hitstop : MonoBehaviour            //regelt den Stopeffekt der druchgeführt wird, wenn man Schaden erleidet 

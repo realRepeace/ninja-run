@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CheatsManager : MonoBehaviour      //regelt Cheats, die das Testen von Elementen erleichtern
 {
     public GameObject moveLeft;
     public GameObject teleportPoint;
+
+    private int testzahl = 0;
     // Update is called once per frame
     void Update()
     {
@@ -34,6 +34,12 @@ public class CheatsManager : MonoBehaviour      //regelt Cheats, die das Testen 
         if (Input.GetKeyDown(KeyCode.U))
         {
             moveLeft.transform.position = new Vector2(-teleportPoint.transform.position.x, moveLeft.transform.position.y);
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PlayerPrefs.SetInt("currentLevel", testzahl);
+            Debug.Log(testzahl);
         }
     }
 }

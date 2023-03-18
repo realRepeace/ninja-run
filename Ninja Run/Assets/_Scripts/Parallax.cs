@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Parallax : MonoBehaviour       //ist zuständig für den Effekt bei dem der Hintergrund sich unterschiedlich schnell bewegt

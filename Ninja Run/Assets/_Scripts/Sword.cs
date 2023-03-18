@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Sword : MonoBehaviour      //regelt das Verhalten des Schwerts z.B. Knockback des Spielers oder Schaden an Gegner
