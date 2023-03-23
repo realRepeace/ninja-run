@@ -30,7 +30,7 @@ public class SaveManager : MonoBehaviour        //regelt das speichern des aktue
             FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
             PlayerData_Storage data = (PlayerData_Storage)bf.Deserialize(file);
 
-            currentSkin = data.currentSkin;
+            currentSkin = data.currentSkinTest;
             currentCoins = data.currentCoins;
 
             file.Close();
@@ -43,7 +43,7 @@ public class SaveManager : MonoBehaviour        //regelt das speichern des aktue
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
         PlayerData_Storage data = new PlayerData_Storage();
 
-        data.currentSkin = currentSkin;
+        data.currentSkinTest = currentSkin;
         data.currentCoins = currentCoins;
 
         bf.Serialize(file, data);
@@ -55,6 +55,6 @@ public class SaveManager : MonoBehaviour        //regelt das speichern des aktue
 
 class PlayerData_Storage
 {
-    public int currentSkin;
+    public int currentSkinTest;
     public int currentCoins;
 }
