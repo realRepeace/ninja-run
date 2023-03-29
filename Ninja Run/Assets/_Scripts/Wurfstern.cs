@@ -11,6 +11,7 @@ public class Wurfstern : MonoBehaviour          //regelt das Verhalten der Wurfs
 
     private float rangeLimit = 11f;
     private float horizontalKnockback = 3f;
+    private float explosionRadius = 3f;
 
 
     void Update()
@@ -30,7 +31,7 @@ public class Wurfstern : MonoBehaviour          //regelt das Verhalten der Wurfs
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+        if (other.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent) && !canExplode)
         {
             enemyComponent.TakeDamage(damage);
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * horizontalKnockback, ForceMode2D.Impulse);
@@ -41,8 +42,23 @@ public class Wurfstern : MonoBehaviour          //regelt das Verhalten der Wurfs
         }
         if (canExplode)
         {
-            Instantiate(explosionParticle, other.transform.position, transform.rotation);
+            Explode(other);
         }
         Destroy(gameObject);
     } 
+
+    private void Explode(Collider2D other)
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+	    Instantiate(explosionParticle, other.transform.position, transform.rotation);
+
+        foreach(Collider2D hit in colliders)
+        {
+            if (hit.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+            {
+                enemyComponent.TakeDamage(damage);
+                hit.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * horizontalKnockback, ForceMode2D.Impulse);
+            }
+        }
+    }
 }
