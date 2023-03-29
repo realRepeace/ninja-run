@@ -6,6 +6,7 @@ public class SettingsMenu : MonoBehaviour       //regelt den Sound im Einstellun
 {
     public AudioMixer audioMixer;
     public Slider volumeSlider;
+    public GameObject mutedSymbol;
     
     void Start()
     {
@@ -19,7 +20,21 @@ public class SettingsMenu : MonoBehaviour       //regelt den Sound im Einstellun
     public void SetVolume (float volume)
     {
         audioMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
+        if (volumeSlider.value < 0.05f)
+        {
+            Mute();
+        } else 
+        {
+            mutedSymbol.SetActive(false);
+        }
         PlayerPrefs.SetFloat("currentVolume", volume);
+    }
+
+    public void Mute() 
+    {
+        volumeSlider.value = 0;
+        mutedSymbol.SetActive(true);
+        PlayerPrefs.SetFloat("currentVolume", volumeSlider.value);
     }
 
 }
