@@ -125,6 +125,7 @@ public class PlayerMovement : MonoBehaviour     //regelt das Verhalten des Spiel
                 schwertSeitePrefab.SetActive(true);
                 inputOnGround = true;
             }
+            FindObjectOfType<AudioManager>().Play("swordslash");
             StartCoroutine(SchwertDelay());
         }
     }
@@ -210,6 +211,7 @@ public class PlayerMovement : MonoBehaviour     //regelt das Verhalten des Spiel
             {
             currentHealth -= 1;
             anim.SetTrigger("damageTaken");
+            FindObjectOfType<AudioManager>().Play("playerhurt");
             Instantiate(damageTakenParticle, transform.position, transform.rotation) ;
             if (currentHealth > 0)
             {

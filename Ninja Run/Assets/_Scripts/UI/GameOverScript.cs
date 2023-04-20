@@ -19,6 +19,11 @@ public class GameOverScript : MonoBehaviour         //regelt die Aktionen die pa
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().name));
     }
 
+    public void NextButton()
+    {
+       StartCoroutine(NextScene());
+    }
+
     public void MenuButton()
     {
         StartCoroutine(LoadScene("Hauptmenu"));
@@ -30,6 +35,15 @@ public class GameOverScript : MonoBehaviour         //regelt die Aktionen die pa
         yield return new WaitForSecondsRealtime(0.5f);
         
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1;
+    }
+
+      IEnumerator NextScene()       //definiert den Szenenübergang
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSecondsRealtime(0.5f);
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 1;
     }
 }

@@ -50,22 +50,61 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    RandomPitch: 1
+    MinPitch: 0.91
+    MaxPitch: 1.094
     source: {fileID: 0}
   - name: jumpsound
     clip: {fileID: 8300000, guid: b6b938ae2a80c8d4f870399a60404669, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    RandomPitch: 1
+    MinPitch: 0.9
+    MaxPitch: 1.2
     source: {fileID: 0}
   - name: pickupCoin
     clip: {fileID: 8300000, guid: 3bd011976c0ae5145866a5b78a978d23, type: 3}
-    volume: 1
+    volume: 0.394
     pitch: 1
     loop: 0
+    RandomPitch: 0
+    MinPitch: 0.812
+    MaxPitch: 0.937
     source: {fileID: 0}
   - name: throwsound
     clip: {fileID: 8300000, guid: be257d998e70c6743b5a97cba2cb3d59, type: 3}
     volume: 0.595
     pitch: 1.462
     loop: 0
+    RandomPitch: 0
+    MinPitch: 1.418
+    MaxPitch: 1.462
+    source: {fileID: 0}
+  - name: pilz sound
+    clip: {fileID: 8300000, guid: d350a7873e6c8924d862975ad18a4b84, type: 3}
+    volume: 0.098
+    pitch: 1.202
+    loop: 0
+    RandomPitch: 1
+    MinPitch: 1.228
+    MaxPitch: 1.184
+    source: {fileID: 0}
+  - name: swordslash
+    clip: {fileID: 8300000, guid: ff0bcda5a20854a4b90bc7e66e369056, type: 3}
+    volume: 0.098
+    pitch: 1.202
+    loop: 0
+    RandomPitch: 1
+    MinPitch: 1.228
+    MaxPitch: 1.184
+    source: {fileID: 0}
+  - name: playerhurt
+    clip: {fileID: 8300000, guid: f04f2f58869284841b5158220a034ac8, type: 3}
+    volume: 0.155
+    pitch: 1.204
+    loop: 0
+    RandomPitch: 0
+    MinPitch: 1
+    MaxPitch: 1.1
     source: {fileID: 0}

@@ -2,7 +2,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
-public class BuySkin : MonoBehaviour
+public class BuySkin : MonoBehaviour        //regelt den Kauf eines Skins
 {
     public SkinManager skinManager;
     public int skinIndex = 0;
@@ -20,10 +20,9 @@ public class BuySkin : MonoBehaviour
 
     public void Buy()
     {
-        Debug.Log("Preis: " + price.text);
-        CoinManager.coinAmount -= priceInt;
         skinManager.UnlockSkin(skinIndex);
         ifAlreadyPurchased();
+        CoinManager.coinAmount -= priceInt;
     }
 
     void FixedUpdate()
@@ -34,7 +33,7 @@ public class BuySkin : MonoBehaviour
 
     void hasEnoughMoney(int price)
     {
-        if(CoinManager.coinAmount <= price)
+        if(CoinManager.coinAmount <= price  || skinManager.skinUnlockedCheck[skinIndex])
         {
             button.interactable = false;
             gameObject.transform.GetComponent<Shadow>().enabled = false;
