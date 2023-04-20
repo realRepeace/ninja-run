@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DontDestroyOnSceneChange : MonoBehaviour
 {
-    public static DontDestroyOnSceneChange instance { get; private set; }
+    public static DontDestroyOnSceneChange instance { get; private set; }           //Zerstört das Objekt nicht beim Szenenwechsel
 
     private void Awake() {
         if (instance != null && instance != this)

@@ -11597,7 +11597,6 @@ GameObject:
   - component: {fileID: 1110824852}
   - component: {fileID: 1110824854}
   - component: {fileID: 1110824853}
-  - component: {fileID: 1110824855}
   m_Layer: 0
   m_Name: SkinShop Menu
   m_TagString: Untagged
@@ -11664,19 +11663,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110824851}
   m_CullTransparentMesh: 1
---- !u!114 &1110824855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110824851}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2bd25bce9c0a1e41ae36c993896a811, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopScrollView: {fileID: 1636126147}
 --- !u!114 &1111674830 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6617468382287292161, guid: 1f6a7892623480c4d81b5f1e33a81227, type: 3}

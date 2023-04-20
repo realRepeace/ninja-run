@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UIAnimationManager : MonoBehaviour
+public class UIAnimationManager : MonoBehaviour     //regelt den Animationseffekt beim Start von UI Elementen
 {
     public float movePositionX;
     public float movePositionY;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 
-public class SkinManager : MonoBehaviour
+public class SkinManager : MonoBehaviour        //regelt das Ändern der Skins im Menü
 {
     public SpriteLibraryAsset[] skins;
     [HideInInspector] public bool[] skinUnlockedCheck;
