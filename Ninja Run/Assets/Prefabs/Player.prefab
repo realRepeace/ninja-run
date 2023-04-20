@@ -581,6 +581,8 @@ MonoBehaviour:
   - {fileID: 7108339969198208228, guid: 7306e369e5b038e438f4a5a68657f5dc, type: 3}
   - {fileID: 7108339969198208228, guid: 74b25793cd5849a458b708e477ebabd0, type: 3}
   - {fileID: 7108339969198208228, guid: 78369e0ce4719c54f8766df8b363900b, type: 3}
+  - {fileID: 7108339969198208228, guid: 5e6a996823baaa348b13d8c406be26a5, type: 3}
+  skinUnlockedCheck: 
 --- !u!1 &2422075942670417423
 GameObject:
   m_ObjectHideFlags: 0

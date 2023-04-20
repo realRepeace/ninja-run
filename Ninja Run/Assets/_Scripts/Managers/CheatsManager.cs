@@ -5,7 +5,7 @@ public class CheatsManager : MonoBehaviour      //regelt Cheats, die das Testen 
     public GameObject moveLeft;
     public GameObject teleportPoint;
 
-    private int testzahl = 0;
+    private int testzahl = 5;
     // Update is called once per frame
     void Update()
     {
@@ -40,6 +40,11 @@ public class CheatsManager : MonoBehaviour      //regelt Cheats, die das Testen 
         {
             PlayerPrefs.SetInt("currentLevel", testzahl);
             Debug.Log(testzahl);
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            PlayerPrefs.DeleteAll();
         }
     }
 }

@@ -12,6 +12,7 @@ public class SpinWheel : MonoBehaviour      //regelt die Funktion des Glücksrad
 
     [SerializeField] private GameObject rewardPopup;
     [SerializeField] private TextMeshProUGUI rewardPopupText;
+    [SerializeField] private GameObject confettiParticles;
 
     private int spinPrice = 100;
 
@@ -27,8 +28,8 @@ public class SpinWheel : MonoBehaviour      //regelt die Funktion des Glücksrad
                 Debug.Log("Spin Ended: " + wheelPiece.Label + ", Amount: " + wheelPiece.Amount);
                 CoinManager.coinAmount += wheelPiece.Amount;
                 showPopup(wheelPiece.Amount);
+                Instantiate(confettiParticles, rewardPopup.transform.position, rewardPopup.transform.rotation);
                 uiSpinButton.interactable = true;
-                 
             });
             
             pickerWheel.Spin();
